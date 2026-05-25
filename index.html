@@ -83,8 +83,8 @@
       border-radius:50%;
       border:5px solid rgba(255,255,255,0.7);
 
-      /* SUA FOTO */
-      background:url('sua-foto.png') center/cover;
+      /* nome correto do arquivo */
+      background:url('img.png') center/cover no-repeat;
 
       margin-bottom:25px;
       box-shadow:0 0 25px rgba(0,0,0,0.25);
@@ -179,76 +179,75 @@
 
 <body>
 
-  <div class="iphone">
+<div class="iphone">
 
-    <div class="notch"></div>
+  <div class="notch"></div>
 
-    <div class="screen">
+  <div class="screen">
 
-      <!-- TELA DA LIGAÇÃO -->
-      <div class="call-screen" id="callScreen">
+    <!-- TELA DA LIGAÇÃO -->
+    <div class="call-screen" id="callScreen">
 
-        <div class="avatar"></div>
+      <div class="avatar"></div>
 
-        <h1>Happy Birthday</h1>
+      <h1>Happy Birthday</h1>
 
-        <p>Moana is calling...</p>
+      <p>Moana is calling...</p>
 
-        <div class="buttons">
+      <div class="buttons">
 
-          <button class="btn decline">
-            ✕
-          </button>
+        <button class="btn decline">
+          ✕
+        </button>
 
-          <button class="btn accept" onclick="atender()">
-            📞
-          </button>
-
-        </div>
-
-      </div>
-
-      <!-- TELA DO CONVITE -->
-      <div class="info-screen" id="infoScreen">
-
-        <div class="card">
-
-          <h2>☕ Breakfast Invitation</h2>
-
-          <p>
-            📍 Donna Doceria<br>
-            Rua 12, Vicente Pires
-          </p>
-
-          <p>
-            📅 June 20<br>
-            ⏰ 09:00 AM
-          </p>
-
-          <button class="desligar" onclick="desligar()">
-            End Call
-          </button>
-
-        </div>
+        <button class="btn accept" onclick="atender()">
+          📞
+        </button>
 
       </div>
 
     </div>
+
+    <!-- TELA DO CONVITE -->
+    <div class="info-screen" id="infoScreen">
+
+      <div class="card">
+
+        <h2>☕ Breakfast Invitation</h2>
+
+        <p>
+          📍 Donna Doceria<br>
+          Rua 12, Vicente Pires
+        </p>
+
+        <p>
+          📅 June 20<br>
+          ⏰ 09:00 AM
+        </p>
+
+        <button class="desligar" onclick="desligar()">
+          End Call
+        </button>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <script>
+</div>
 
-    function atender(){
-      document.getElementById("callScreen").style.display = "none";
-      document.getElementById("infoScreen").style.display = "flex";
-    }
+<script>
+function atender(){
+  document.getElementById("callScreen").style.display = "none";
+  document.getElementById("infoScreen").style.display = "flex";
+}
 
-    function desligar(){
-      document.getElementById("infoScreen").style.display = "none";
-      document.getElementById("callScreen").style.display = "flex";
-    }
-
-  </script>
+function desligar(){
+  document.getElementById("infoScreen").style.display = "none";
+  document.getElementById("callScreen").style.display = "flex";
+}
+</script>
 
 </body>
 </html>
