@@ -1,251 +1,419 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>iPhone Convite</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
 
-    body{
-      background:#000;
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-    }
+body{
+background:#000;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
 
-    .iphone{
-      width:320px;
-      height:650px;
-      background:#1a1a1a;
-      border-radius:45px;
-      padding:18px;
-      border:4px solid #444;
-      box-shadow:0 0 40px rgba(255,255,255,0.08);
-      position:relative;
-      overflow:hidden;
-    }
+.iphone{
+width:320px;
+height:650px;
+background:#111;
+border-radius:45px;
+padding:18px;
+border:4px solid #333;
+box-shadow:0 0 45px rgba(255,255,255,.10);
+position:relative;
+overflow:hidden;
+}
 
-    .notch{
-      width:140px;
-      height:30px;
-      background:#000;
-      border-radius:20px;
-      position:absolute;
-      top:10px;
-      left:50%;
-      transform:translateX(-50%);
-      z-index:10;
-    }
+.notch{
+width:140px;
+height:30px;
+background:#000;
+border-radius:20px;
+position:absolute;
+top:10px;
+left:50%;
+transform:translateX(-50%);
+z-index:10;
+}
 
-    .screen{
-      width:100%;
-      height:100%;
-      border-radius:35px;
-      overflow:hidden;
-      position:relative;
-      background:#efe3d3;
-      color:#4b2e2e;
-    }
+.screen{
+width:100%;
+height:100%;
+border-radius:35px;
+overflow:hidden;
+position:relative;
+background:linear-gradient(180deg,#4b2929,#120909);
+}
 
-    .call-screen,
-    .info-screen{
-      position:absolute;
-      width:100%;
-      height:100%;
-      top:0;
-      left:0;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      padding:25px;
-      transition:0.5s;
-    }
+.call-screen,
+.info-screen{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+padding:30px;
+}
 
-    .info-screen{
-      display:none;
-      text-align:center;
-      background:#efe3d3;
-    }
+.call-screen{
+padding-top:85px;
+text-align:center;
+}
 
-    /* FOTO */
-    .avatar{
-      width:170px;
-      height:170px;
-      border-radius:50%;
-      border:5px solid rgba(255,255,255,0.7);
+.avatar{
+width:165px;
+height:165px;
+border-radius:50%;
+background:url('img.png') center/cover;
+border:5px solid rgba(255,255,255,.35);
+box-shadow:0 0 35px rgba(255,255,255,.10);
+margin-bottom:25px;
+}
 
-      /* nome correto do arquivo */
-      background:url('img.png') center/cover no-repeat;
+.title{
+font-size:34px;
+font-weight:300;
+color:white;
+margin-bottom:10px;
+}
 
-      margin-bottom:25px;
-      box-shadow:0 0 25px rgba(0,0,0,0.25);
-    }
+.name{
+font-size:18px;
+color:rgba(255,255,255,.75);
+margin-bottom:8px;
+}
 
-    h1{
-      font-size:32px;
-      margin-bottom:10px;
-      color:#b30000;
-      font-family: Georgia, serif;
-    }
+.birthday{
+font-size:20px;
+color:#f6c7c7;
+}
 
-    p{
-      margin-bottom:25px;
-      font-size:18px;
-    }
+.slide-container{
+width:100%;
+margin-top:75px;
+}
 
-    .buttons{
-      position:absolute;
-      bottom:60px;
-      width:100%;
-      display:flex;
-      justify-content:space-evenly;
-      padding:0 30px;
-    }
+.slide-track{
+position:relative;
+width:100%;
+height:70px;
+border-radius:50px;
+background:rgba(255,255,255,.10);
+border:1px solid rgba(255,255,255,.15);
+overflow:hidden;
+}
 
-    .btn{
-      width:78px;
-      height:78px;
-      border-radius:50%;
-      border:none;
-      cursor:pointer;
-      font-size:30px;
-      color:white;
-      transition:0.3s;
-      box-shadow:0 5px 15px rgba(0,0,0,0.3);
-    }
+.slide-text{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+padding-left:45px;
+color:rgba(255,255,255,.60);
+font-size:14px;
+}
 
-    .btn:hover{
-      transform:scale(1.08);
-    }
+.slide-button{
+width:62px;
+height:62px;
+border-radius:50%;
+background:white;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+color:white;
+position:absolute;
+top:4px;
+left:4px;
+cursor:pointer;
+z-index:10;
+user-select:none;
+transition:.2s;
+box-shadow:0 5px 18px rgba(0,0,0,.35);
+}
 
-    .accept{
-      background:#28c840;
-    }
+.info-screen{
+display:none;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(180deg,#f7eadf,#fff8f3);
+}
 
-    .decline{
-      background:#ff1744;
-    }
+.card{
+background:white;
+padding:26px;
+border-radius:30px;
+width:100%;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
 
-    .card{
-      background:rgba(255,255,255,0.45);
-      padding:28px;
-      border-radius:28px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.12);
-      width:100%;
-      backdrop-filter:blur(5px);
-    }
+.mini-avatar{
+width:95px;
+height:95px;
+border-radius:50%;
+background:url('img.png') center/cover;
+margin:auto;
+margin-bottom:18px;
+border:4px solid white;
+box-shadow:0 5px 15px rgba(0,0,0,.18);
+}
 
-    .card h2{
-      margin-bottom:20px;
-      font-size:34px;
-      color:#b30000;
-      font-family: Georgia, serif;
-    }
+.card h2{
+font-size:30px;
+margin-bottom:12px;
+color:#b30000;
+font-family:Georgia,serif;
+}
 
-    .card p{
-      font-size:18px;
-      line-height:1.8;
-      color:#3a2a2a;
-    }
+.mensagem{
+font-size:16px;
+line-height:1.6;
+color:#666;
+margin-bottom:15px;
+}
 
-    .desligar{
-      margin-top:35px;
-      background:#c40000;
-      border:none;
-      padding:15px 35px;
-      border-radius:40px;
-      color:white;
-      font-size:18px;
-      cursor:pointer;
-      transition:0.3s;
-    }
+.info{
+font-size:16px;
+line-height:1.7;
+color:#333;
+margin-bottom:12px;
+}
 
-    .desligar:hover{
-      transform:scale(1.05);
-      background:#e00000;
-    }
+.botoes{
+display:flex;
+gap:12px;
+justify-content:center;
+margin-top:22px;
+}
 
-  </style>
+.aceito,
+.recusar{
+border:none;
+padding:13px 22px;
+border-radius:50px;
+color:white;
+font-size:15px;
+cursor:pointer;
+}
+
+@keyframes Aceitar{
+0% {background: #3fa13f; }
+100% {background: white; }
+}
+@keyframes Recusar{
+0% {background: #e0503a; }
+100% {background: white; }
+}
+
+.aceito{
+background:#3fa13f;
+opacity: 1.0;
+}
+
+.aceito:hover{
+  background: white;
+  color: black;
+  animation: Aceitar 1s; 
+border: 1px solid black;
+}
+
+.recusar{
+background:#e0503a;
+opacity: 2.0;
+}
+.recusar:hover{
+  background: white;
+  color: black;
+ animation: Recusar 1s; 
+border: 1px solid black;
+}
+.butterflies{
+position:absolute;
+inset:0;
+overflow:hidden;
+pointer-events:none;
+z-index:1;
+}
+
+.butterflies span{
+position:absolute;
+font-size:24px;
+animation: voar 8s linear infinite;
+opacity:.85;
+}
+
+.butterflies span:nth-child(1){left:10%; animation-delay:0s;}
+.butterflies span:nth-child(2){left:25%; animation-delay:1s;}
+.butterflies span:nth-child(3){left:40%; animation-delay:2s;}
+.butterflies span:nth-child(4){left:55%; animation-delay:.5s;}
+.butterflies span:nth-child(5){left:70%; animation-delay:1.5s;}
+.butterflies span:nth-child(6){left:85%; animation-delay:2.5s;}
+.butterflies span:nth-child(7){left:15%; animation-delay:3s;}
+.butterflies span:nth-child(8){left:65%; animation-delay:3.5s;}
+
+@keyframes voar{
+0%{
+bottom:-40px;
+transform:translateX(0) rotate(0deg) scale(.8);
+}
+50%{
+transform:translateX(35px) rotate(20deg) scale(1.1);
+}
+100%{
+bottom:105%;
+transform:translateX(-25px) rotate(-20deg) scale(.9);
+}
+}
+
+.info-screen .card{
+position:relative;
+z-index:2;
+}
+
+</style>
 </head>
 
 <body>
 
 <div class="iphone">
+<div class="notch"></div>
 
-  <div class="notch"></div>
+<div class="screen">
 
-  <div class="screen">
+<div class="call-screen" id="callScreen">
 
-    <!-- TELA DA LIGAÇÃO -->
-    <div class="call-screen" id="callScreen">
+<div class="avatar"></div>
 
-      <div class="avatar"></div>
+<h1 class="title">Moana Carvalho</h1>
 
-      <h1>Happy Birthday</h1>
+<p class="name">is calling you...</p>
 
-      <p>Moana is calling...</p>
+<p class="birthday">Happy Birthday 🎉</p>
 
-      <div class="buttons">
+<div class="slide-container">
+<div class="slide-track" id="slideTrack">
 
-        <button class="btn decline">
-          ✕
-        </button>
+<div class="slide-button" id="slider">📞</div>
 
-        <button class="btn accept" onclick="atender()">
-          📞
-        </button>
+<div class="slide-text">Slide to answer</div>
 
-      </div>
-
-    </div>
-
-    <!-- TELA DO CONVITE -->
-    <div class="info-screen" id="infoScreen">
-
-      <div class="card">
-
-        <h2>☕ Breakfast Invitation</h2>
-
-        <p>
-          📍 Donna Doceria<br>
-          Rua 12, Vicente Pires
-        </p>
-
-        <p>
-          📅 June 20<br>
-          ⏰ 09:00 AM
-        </p>
-
-        <button class="desligar" onclick="desligar()">
-          End Call
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
+</div>
 
 </div>
 
+<div class="info-screen" id="infoScreen">
+<div class="butterflies">
+  <span>💌</span><span>🦋</span><span>💌</span><span>🦋</span>
+  <span>💌</span><span>🦋</span><span>💌</span><span>🦋</span>
+</div>
+
+<div class="card">
+
+<div class="mini-avatar"></div>
+
+<h2>Coffee Break ☕</h2>
+
+<p class="mensagem">
+Um café. Risadas. Você.     
+</p>
+
+<p class="info">
+📍 Donna Doceria<br>
+Rua 12, Vicente Pires
+</p>
+
+<p class="info">
+📅 June 20<br>
+⏰ 09:00 AM
+</p>
+
+<div class="botoes">
+
+<button class="aceito" id="botaoWhatsapp">
+Aceitar
+</button>
+
+<button class="recusar" onclick="voltar()">
+Recusar
+</button>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
 <script>
-function atender(){
-  document.getElementById("callScreen").style.display = "none";
-  document.getElementById("infoScreen").style.display = "flex";
+const linkWhatsapp =
+"https://wa.me/5561983740385?text=I%20accepted%20the%20coffee%20break%20invitation%20☕";
+
+document.getElementById("botaoWhatsapp").onclick = () => {
+window.open(linkWhatsapp);
+};
+
+const slider = document.getElementById("slider");
+const track = document.getElementById("slideTrack");
+
+let segurando = false;
+
+slider.addEventListener("mousedown", () => segurando = true);
+slider.addEventListener("touchstart", () => segurando = true);
+
+document.addEventListener("mousemove", mover);
+document.addEventListener("touchmove", mover);
+
+document.addEventListener("mouseup", soltar);
+document.addEventListener("touchend", soltar);
+
+function mover(e){
+if(!segurando)return;
+
+const x = e.touches ? e.touches[0].clientX : e.clientX;
+const rect = track.getBoundingClientRect();
+
+let pos = x - rect.left - 30;
+const limite = track.offsetWidth - slider.offsetWidth - 4;
+
+if(pos < 4) pos = 4;
+if(pos > limite) pos = limite;
+
+slider.style.left = pos + "px";
+
+if(pos >= limite - 5){
+atender();
+}
 }
 
-function desligar(){
-  document.getElementById("infoScreen").style.display = "none";
-  document.getElementById("callScreen").style.display = "flex";
+function soltar(){
+segurando = false;
+slider.style.left = "4px";
+}
+
+function atender(){
+document.getElementById("callScreen").style.display = "none";
+document.getElementById("infoScreen").style.display = "flex";
+}
+
+function voltar(){
+document.getElementById("infoScreen").style.display = "none";
+document.getElementById("callScreen").style.display = "flex";
 }
 </script>
 
